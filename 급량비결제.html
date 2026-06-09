@@ -39,7 +39,6 @@
     .page-title[contenteditable="true"]:focus {
       outline: 2px solid #4a90e2;
       border-radius: 4px;
-      outline-offset: 2px;
     }
 
     table {
@@ -62,72 +61,25 @@
       padding: 9px 14px;
       text-align: center;
       color: #2c3e50;
-      position: relative;
     }
 
-    tbody td[contenteditable="true"] {
-      cursor: text;
-      transition: background 0.15s;
-    }
+    tbody td[contenteditable="true"] { cursor: text; }
+    tbody td[contenteditable="true"]:hover { background: #f4f8ff; }
+    tbody td[contenteditable="true"]:focus { outline: 2px solid #4a90e2; background: #eaf3ff; }
 
-    tbody td[contenteditable="true"]:hover {
-      background: #f4f8ff;
-    }
+    tbody tr:nth-child(even) td { background: #f7f9fc; }
+    tbody tr:nth-child(even) td[contenteditable="true"]:hover { background: #eef4ff; }
 
-    tbody td[contenteditable="true"]:focus {
-      outline: 2px solid #4a90e2;
-      background: #eaf3ff;
-      z-index: 1;
-    }
-
-    tbody tr:nth-child(even) td {
-      background: #f7f9fc;
-    }
-
-    tbody tr:nth-child(even) td[contenteditable="true"]:hover {
-      background: #eef4ff;
-    }
-
-    .td-amount {
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .td-balance {
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-      color: #555;
-    }
-
-    .td-num {
-      width: 50px;
-      font-weight: 600;
-      color: #555;
-    }
-
-    .td-delete {
-      width: 36px;
-      padding: 4px !important;
-      border: 1px solid #c8d0da;
-    }
+    .td-amount, .td-balance { text-align: right; }
+    .td-num { width: 50px; font-weight: 600; color: #555; }
+    .td-delete { width: 36px; padding: 4px !important; border: 1px solid #c8d0da; }
 
     .btn-delete {
-      background: none;
-      border: none;
-      color: #c0392b;
-      font-size: 16px;
-      cursor: pointer;
-      padding: 2px 6px;
-      border-radius: 4px;
-      line-height: 1;
-      opacity: 0.6;
-      transition: opacity 0.15s;
+      background: none; border: none; color: #c0392b;
+      font-size: 16px; cursor: pointer; padding: 2px 6px;
+      border-radius: 4px; opacity: 0.6;
     }
-
-    .btn-delete:hover {
-      opacity: 1;
-      background: #fdecea;
-    }
+    .btn-delete:hover { opacity: 1; background: #fdecea; }
 
     tfoot td {
       border: 1px solid #b0b8c4;
@@ -136,86 +88,35 @@
       background: #e8edf3;
       color: #1a1a1a;
     }
-
-    .tfoot-label {
-      text-align: center;
-    }
-
-    .tfoot-total {
-      text-align: right;
-      color: #c0392b;
-      font-size: 15px;
-    }
+    .tfoot-total { text-align: right; color: #c0392b; }
 
     .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      justify-content: flex-end;
-      flex-wrap: wrap;
+      display: flex; gap: 10px; margin-top: 20px;
+      justify-content: flex-end; flex-wrap: wrap;
     }
 
     .btn {
-      padding: 9px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
+      padding: 9px 20px; border: none; border-radius: 6px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
       font-family: inherit;
-      transition: background 0.15s, transform 0.1s;
     }
-
-    .btn:active { transform: scale(0.97); }
-
-    .btn-add {
-      background: #2ecc71;
-      color: #fff;
-    }
-
-    .btn-add:hover { background: #27ae60; }
-
-    .btn-save {
-      background: #4a90e2;
-      color: #fff;
-    }
-
+    .btn-add  { background: #2ecc71; color: #fff; }
+    .btn-add:hover  { background: #27ae60; }
+    .btn-save { background: #4a90e2; color: #fff; }
     .btn-save:hover { background: #2e7bd1; }
-
-    .btn-reset {
-      background: #e0e0e0;
-      color: #555;
-    }
-
+    .btn-reset { background: #e0e0e0; color: #555; }
     .btn-reset:hover { background: #c8c8c8; }
 
-    .hint {
-      margin-top: 14px;
-      font-size: 12px;
-      color: #999;
-      text-align: center;
-    }
+    .hint { margin-top: 14px; font-size: 12px; color: #999; text-align: center; }
 
     .toast {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
+      position: fixed; bottom: 30px; left: 50%;
       transform: translateX(-50%) translateY(60px);
-      background: #333;
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 24px;
-      font-size: 14px;
-      opacity: 0;
-      transition: all 0.3s ease;
-      pointer-events: none;
-      z-index: 999;
+      background: #333; color: #fff; padding: 10px 22px;
+      border-radius: 24px; font-size: 14px; opacity: 0;
+      transition: all 0.3s ease; pointer-events: none; z-index: 999;
     }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
@@ -223,22 +124,71 @@
 <div class="container">
   <div class="page-title" contenteditable="true" id="pageTitle">5월 급량비 결제</div>
 
-  <table id="mainTable">
+  <table>
     <thead>
       <tr>
-        <th class="td-num">번호</th>
+        <th style="width:50px">번호</th>
         <th>급식처</th>
         <th>결제액</th>
         <th>잔액</th>
-        <th class="td-delete"></th>
+        <th style="width:36px"></th>
       </tr>
     </thead>
     <tbody id="tableBody">
+      <tr>
+        <td class="td-num" contenteditable="true">1</td>
+        <td contenteditable="true">포텐</td>
+        <td class="td-amount" contenteditable="true">135,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
+      <tr>
+        <td class="td-num" contenteditable="true">2</td>
+        <td contenteditable="true">사랑해베이글</td>
+        <td class="td-amount" contenteditable="true">108,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
+      <tr>
+        <td class="td-num" contenteditable="true">3</td>
+        <td contenteditable="true">고려짬뽕</td>
+        <td class="td-amount" contenteditable="true">135,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
+      <tr>
+        <td class="td-num" contenteditable="true">4</td>
+        <td contenteditable="true">건하은칼국수</td>
+        <td class="td-amount" contenteditable="true">90,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
+      <tr>
+        <td class="td-num" contenteditable="true">1</td>
+        <td contenteditable="true">신공주칼국수</td>
+        <td class="td-amount" contenteditable="true">135,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
+      <tr>
+        <td class="td-num" contenteditable="true">2</td>
+        <td contenteditable="true">장혁민의부대찌개</td>
+        <td class="td-amount" contenteditable="true">117,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
+      <tr>
+        <td class="td-num" contenteditable="true">3</td>
+        <td contenteditable="true">남가네설악추어탕</td>
+        <td class="td-amount" contenteditable="true">135,000</td>
+        <td class="td-balance" contenteditable="true"></td>
+        <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+      </tr>
     </tbody>
     <tfoot>
       <tr>
-        <td class="tfoot-label" colspan="2">합계</td>
-        <td class="tfoot-total td-amount" id="totalAmount">0</td>
+        <td colspan="2" style="text-align:center;font-weight:700">합계</td>
+        <td class="tfoot-total" id="totalAmount">855,000</td>
         <td></td>
         <td></td>
       </tr>
@@ -246,157 +196,77 @@
   </table>
 
   <div class="actions">
-    <button class="btn btn-reset" onclick="resetToDefault()">초기화</button>
-    <button class="btn btn-add" onclick="addRow()">+ 행 추가</button>
-    <button class="btn btn-save" onclick="saveData()">저장</button>
+    <button class="btn btn-reset" onclick="resetConfirm()">초기화</button>
+    <button class="btn btn-add"   onclick="addRow()">+ 행 추가</button>
+    <button class="btn btn-save"  onclick="saveToFile()">내보내기</button>
   </div>
-  <p class="hint">셀을 클릭하면 바로 편집할 수 있습니다 · 데이터는 브라우저에 자동 저장됩니다</p>
+  <p class="hint">셀을 클릭하면 바로 편집할 수 있습니다</p>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-  const DEFAULT_DATA = {
-    title: "5월 급량비 결제",
-    rows: [
-      { num: "1", name: "포텐", amount: "135,000", balance: "" },
-      { num: "2", name: "사랑해베이글", amount: "108,000", balance: "" },
-      { num: "3", name: "고려짬뽕", amount: "135,000", balance: "" },
-      { num: "4", name: "건하은칼국수", amount: "90,000", balance: "" },
-      { num: "1", name: "신공주칼국수", amount: "135,000", balance: "" },
-      { num: "2", name: "장혁민의부대찌개", amount: "117,000", balance: "" },
-      { num: "3", name: "남가네설악추어탕", amount: "135,000", balance: "" },
-    ]
-  };
-
   function parseAmount(str) {
-    return parseInt((str || "0").replace(/[^0-9]/g, ""), 10) || 0;
-  }
-
-  function formatAmount(num) {
-    return num.toLocaleString("ko-KR");
+    return parseInt((str || "").replace(/[^0-9]/g, ""), 10) || 0;
   }
 
   function updateTotal() {
     let total = 0;
-    document.querySelectorAll("#tableBody tr").forEach(tr => {
-      const amountCell = tr.querySelector(".td-amount");
-      if (amountCell) total += parseAmount(amountCell.textContent);
+    document.querySelectorAll("#tableBody .td-amount").forEach(td => {
+      total += parseAmount(td.textContent);
     });
-    document.getElementById("totalAmount").textContent = formatAmount(total);
+    document.getElementById("totalAmount").textContent = total.toLocaleString("ko-KR");
   }
 
-  function makeCell(text, cls, editable = true) {
-    const td = document.createElement("td");
-    td.className = cls || "";
-    td.textContent = text || "";
-    if (editable) {
-      td.setAttribute("contenteditable", "true");
-      td.addEventListener("blur", () => {
-        updateTotal();
-        autoSave();
-      });
-      td.addEventListener("keydown", e => {
-        if (e.key === "Enter") { e.preventDefault(); td.blur(); }
-      });
-    }
-    return td;
-  }
+  // 셀 변경 시 합계 업데이트
+  document.getElementById("tableBody").addEventListener("input", function(e) {
+    if (e.target.classList.contains("td-amount")) updateTotal();
+  });
 
-  function addRow(data = { num: "", name: "", amount: "", balance: "" }) {
-    const tbody = document.getElementById("tableBody");
-    const tr = document.createElement("tr");
-
-    tr.appendChild(makeCell(data.num, "td-num"));
-    tr.appendChild(makeCell(data.name, "td-name"));
-    tr.appendChild(makeCell(data.amount, "td-amount"));
-    tr.appendChild(makeCell(data.balance, "td-balance"));
-
-    const tdDel = document.createElement("td");
-    tdDel.className = "td-delete";
-    const btnDel = document.createElement("button");
-    btnDel.className = "btn-delete";
-    btnDel.textContent = "✕";
-    btnDel.title = "행 삭제";
-    btnDel.addEventListener("click", () => {
-      if (document.querySelectorAll("#tableBody tr").length > 1) {
-        tr.remove();
-        updateTotal();
-        autoSave();
-      } else {
-        showToast("마지막 행은 삭제할 수 없습니다.");
-      }
-    });
-    tdDel.appendChild(btnDel);
-    tr.appendChild(tdDel);
-
-    tbody.appendChild(tr);
+  function deleteRow(btn) {
+    const rows = document.querySelectorAll("#tableBody tr");
+    if (rows.length <= 1) { showToast("마지막 행은 삭제할 수 없습니다."); return; }
+    btn.closest("tr").remove();
     updateTotal();
   }
 
-  function loadData() {
-    const saved = localStorage.getItem("급량비결제");
-    if (saved) {
-      try {
-        const data = JSON.parse(saved);
-        document.getElementById("pageTitle").textContent = data.title || DEFAULT_DATA.title;
-        data.rows.forEach(r => addRow(r));
-        return;
-      } catch(e) {}
-    }
-    loadDefault();
+  function addRow() {
+    const tbody = document.getElementById("tableBody");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="td-num" contenteditable="true"></td>
+      <td contenteditable="true"></td>
+      <td class="td-amount" contenteditable="true"></td>
+      <td class="td-balance" contenteditable="true"></td>
+      <td class="td-delete"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
+    `;
+    tbody.appendChild(tr);
+    tr.querySelector("[contenteditable]").focus();
   }
 
-  function loadDefault() {
-    document.getElementById("pageTitle").textContent = DEFAULT_DATA.title;
-    document.getElementById("tableBody").innerHTML = "";
-    DEFAULT_DATA.rows.forEach(r => addRow(r));
+  function resetConfirm() {
+    if (confirm("원본 데이터로 초기화할까요?")) location.reload();
   }
 
-  function getTableData() {
-    const rows = [];
-    document.querySelectorAll("#tableBody tr").forEach(tr => {
-      const cells = tr.querySelectorAll("td");
-      rows.push({
-        num: cells[0] ? cells[0].textContent.trim() : "",
-        name: cells[1] ? cells[1].textContent.trim() : "",
-        amount: cells[2] ? cells[2].textContent.trim() : "",
-        balance: cells[3] ? cells[3].textContent.trim() : "",
-      });
-    });
-    return {
-      title: document.getElementById("pageTitle").textContent.trim(),
-      rows
-    };
-  }
-
-  function autoSave() {
-    localStorage.setItem("급량비결제", JSON.stringify(getTableData()));
-  }
-
-  function saveData() {
-    autoSave();
-    showToast("저장되었습니다 ✓");
-  }
-
-  function resetToDefault() {
-    if (confirm("초기 데이터로 되돌리겠습니까?")) {
-      localStorage.removeItem("급량비결제");
-      loadDefault();
-      showToast("초기화되었습니다.");
-    }
+  function saveToFile() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = document.getElementById("pageTitle").textContent.trim() + ".html";
+    a.click();
+    showToast("파일로 저장되었습니다 ✓");
   }
 
   function showToast(msg) {
-    const toast = document.getElementById("toast");
-    toast.textContent = msg;
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2200);
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 2200);
   }
 
-  document.getElementById("pageTitle").addEventListener("blur", autoSave);
-
-  loadData();
+  // 초기 합계 계산
+  updateTotal();
 </script>
 </body>
 </html>
